@@ -4,12 +4,27 @@
       <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
       <ul>
-        <% message.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :incident_id %>
+    <%= form.text_field :incident_id %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="container message" id=<%= message.id %>>
+    <div class="row message-info">
+      <div class="col-12">
+        <strong><%= message.user.name %></strong>
+        <em>at <%= message.created_at %></em></div>
+    </div>
+
+    <div class="row message-content">
+      <div class="col-12"><%= message.content %></div>
+    </div>
+
+    <div class="row message-options">
+      <div class="col-12">
+        <a class="reply-link">Reply</a>
+      </div>
+    </div>
+
+    <div class="row reply-form">
+      <div class="col-12">
+        <textarea class="reply-textarea"></textarea>
+        <br>
+        <button type="button" class="btn cancel-button">Cancel</button>
+        <button type="submit" class="btn btn-primary send-reply-button">Send</button>
+      </div>
+    </div>
+
+    <div class="container replies">
+      <%= render message.children %>
+    </div>
+  </div>
+</div>

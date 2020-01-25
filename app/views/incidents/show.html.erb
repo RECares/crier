@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @incident.name %>
-</p>
+<div class="row">
+  <div class="col-10">
+    <h1><%= @incident.name %></h1>
+  </div>
+  <div class="col-2">
+    <%= button_to "Edit Incident", [:edit, @incident], method: :get, class: "btn btn-block btn-primary" %>
+  </div>
+</div>
 
 <p>
   <strong>Location:</strong>
@@ -11,14 +14,35 @@
 </p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @incident.latitude %>
+  <strong>Coordinates:</strong>
+  <%= @incident.coordinates %>
 </p>
 
 <p>
-  <strong>Longitude:</strong>
-  <%= @incident.longitude %>
+  <strong>Created by:</strong>
+  <%= @incident.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
+<h2>Messages</h2>
+
+<div class="container comment-form">
+  <div class="row">
+    <div class="col-12">
+      <textarea class="message-textarea"></textarea>
+      <br>
+      <button type="submit" class="btn btn-primary send-comment-button">Send</button>
+    </div>
+  </div>
+</div>
+
+<div class="container messages" id=<%= @incident.id %>>
+  <% if @incident.messages.any? %>
+    <%= render @incident.threads.order(:created_at) %>
+  <% else %>
+    <div class="row" id="no-messages-notice">
+      <div class="col-12">
+        <em>No messages yet.</em>
+      </div>
+    </div>
+  <% end %>
+</div>

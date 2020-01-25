@@ -5,6 +5,8 @@ $(document).on("turbolinks:load", () => {
     if ($("#latitude").val() == "0.0" || $("#longitude").val() == "0.0") {
         $("#latitude").val("");
         $("#longitude").val("");
+        $("#latitude").removeClass("is-valid");
+        $("#longitude").removeClass("is-valid");
     }
 
     $(document).on("click", "#use-current-location-button", (event) => {

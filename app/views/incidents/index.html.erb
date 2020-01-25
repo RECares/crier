@@ -1,33 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-10">
+    <h1>Incidents</h1>
+  </div>
+  <div class="col-2">
+    <%= button_to "New Incident", [:new, :incident], class: "btn btn-success btn-block", method: :get %>
+  </div>
+</div>
 
-<h1>Incidents</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incidents.each do |incident| %>
-      <tr>
-        <td><%= incident.name %></td>
-        <td><%= incident.location %></td>
-        <td><%= incident.latitude %></td>
-        <td><%= incident.longitude %></td>
-        <td><%= link_to 'Show', incident %></td>
-        <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-        <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Incident', new_incident_path %>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-2"><strong>Name</strong></div>
+      <div class="col-4"><strong>Location</strong></div>
+      <div class="col-4"><strong>Coordinates</strong></div>
+      <div class="col-2"><strong>Created by</strong></div>
+    </div>
+    <%= render @incidents %>
+  </div>
+</div>

@@ -1,6 +1,15 @@
-<h1>Editing Incident</h1>
+<% if @incident.errors.any? %>
+  <div class="alert alert-danger">
+    <%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved.
+  </div>
+<% end %>
 
-<%= render 'form', incident: @incident %>
+<div class="row">
+  <div class="col-6 offset-3">
+    <center><h1>Edit Incident</h1></center>
 
-<%= link_to 'Show', @incident %> |
-<%= link_to 'Back', incidents_path %>
+    <%= render "form", incident: @incident %>
+
+    <%= button_to "Delete Incident", @incident, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-block btn-danger" %>
+  </div>
+</div>

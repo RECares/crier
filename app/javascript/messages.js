@@ -7,7 +7,7 @@ $(document).on("click", ".send-comment-button", (event) => {
 });
 
 $(document).on("click", ".reply-link", (event) => {
-    var message = $(event).currentTarget).closest(".message");
+    var message = $(event.currentTarget).closest(".message");
     var replyForm = message.children(".reply-form");
     replyForm.toggle();
 });
