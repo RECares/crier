@@ -3,7 +3,7 @@ import consumer from "./consumer"
 $(document).on("turbolinks:load", () => {
     var incident = Number($(".messages").attr("id"));
     if (!isNaN(incident)) {
-        consumer.subscriptions.create({ channel: "MessagesChannel", id, incident }, {
+        consumer.messages = consumer.subscriptions.create({ channel: "MessagesChannel", id: incident }, {
             received(data) {
                 if ($("#no-messages-notice")) {
                     $("#no-messages-notice").hide();
