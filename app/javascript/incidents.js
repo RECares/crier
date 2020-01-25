@@ -36,8 +36,8 @@ $(document).on("turbolinks:load", () => {
 
     var setLocation = (error, response) => {
         var location = response.results[0].locations[0];
-        var street = response.street;
-        var city = response.adminArea5;
+        var street = location.street;
+        var city = location.adminArea5;
         var stateOrProvince = location.adminArea3;
         var postalCode = location.postalCode;
         $("#location").val(`${street}, ${city}, ${stateOrProvince} ${postalCode}`);
